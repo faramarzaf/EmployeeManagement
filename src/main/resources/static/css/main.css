@@ -1,0 +1,5 @@
+.header {
+    height: 100px;
+    width: 100%;
+    line-height:4; /*change position the text of headers in html files*/
+}
