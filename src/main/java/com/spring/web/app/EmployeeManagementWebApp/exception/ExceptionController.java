@@ -1,4 +1,4 @@
-package com.spring.web.app.EmployeeManagementWebApp;
+package com.spring.web.app.EmployeeManagementWebApp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

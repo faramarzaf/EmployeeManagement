@@ -1,7 +1,6 @@
-package com.spring.web.app.EmployeeManagementWebApp.controller;
+package com.spring.web.app.EmployeeManagementWebApp.exception;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,12 +16,12 @@ public class MyErrorController implements ErrorController {
 
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
+            switch (statusCode) {
+                case 404:
+                    return "error_404";
 
-            if(statusCode == HttpStatus.NOT_FOUND.value()) {
-                return "error_404";
-            }
-            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-                return "error_500";
+                case 500:
+                    return "error_500";
             }
         }
         return "error";
