@@ -1,0 +1,76 @@
+body {
+    background: #eee
+}
+
+.container {
+    margin-top: 200px
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 20px;
+    letter-spacing: 2px;
+    border: 1px solid transparent
+}
+
+.btn-round {
+    border-radius: 4px !important
+}
+
+.btn i {
+    margin-right: 5px
+}
+
+.btn.btn-large i {
+    font-size: 24px
+}
+
+.button {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.btn.btn-large {
+    font-size: 18px;
+    padding: 18px 35px
+}
+
+.btn.btn-medium {
+    font-size: 14px;
+    padding: 10px 22px
+}
+
+.btn.btn-small {
+    font-size: 11px;
+    padding: 2px 14px;
+    letter-spacing: 1px
+}
+
+.btn.btn-very-small {
+    font-size: 9px;
+    padding: 1px 12px;
+    letter-spacing: 1px
+}
+
+.highlight-button {
+    border: 2px solid #000;
+    display: inline-block;
+    padding: 8px 20px 9px;
+    font-size: 12px;
+    color: #000;
+    background-color: transparent
+}
+
+.highlight-button:hover {
+    background-color: #000;
+    border: 2px solid #000;
+    color: #fff
+}
+
+.highlight-button i {
+    color: #000
+}
+
+.highlight-button:hover i {
+    color: #fff
+}

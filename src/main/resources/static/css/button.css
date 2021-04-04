@@ -14,6 +14,11 @@
     cursor: pointer;
 }
 
+.buttonLogout {
+    background-color: #ba0000;
+    color: white;
+}
+
 .buttonSubmit {
     background-color: white;
     color: black;
