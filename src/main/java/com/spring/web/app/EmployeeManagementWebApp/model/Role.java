@@ -2,7 +2,6 @@ package com.spring.web.app.EmployeeManagementWebApp.model;
 
 import javax.persistence.*;
 
-/*
 @Entity
 @Table(name = "role")
 public class Role {
@@ -36,4 +35,3 @@ public class Role {
         this.name = name;
     }
 }
-*/

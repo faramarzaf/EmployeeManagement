@@ -22,6 +22,7 @@ public class EmployeeController {
         return findPaginated(1, "firstName", "asc", model);
     }
 
+
     @GetMapping("/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model) {
         Employee employee = new Employee();
