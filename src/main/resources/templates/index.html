@@ -93,13 +93,28 @@
                                 <td th:text="${employee.email}"></td>
                                 <td>
 
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            more
+
+                                    <div class="dropdown" style="text-align:center">
+                                        <a class=" btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                            <div class="rotate">
+                                                <span class="circle"></span>
+                                                <span class="circle"></span>
+                                                <span class="circle"></span>
+                                            </div>
+
                                         </a>
+
+                                        <!--          <div style="text-align:center" class="rotate">
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                  </div>-->
+
+
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item"  th:href="@{/showFormForUpdate/{id}(id=${employee.id})}">Edit</a>
-                                            <a class="dropdown-item"  th:style="'color: red;'" data-toggle="modal" data-target="#deleteModal">Delete</a>
+                                            <a class="dropdown-item" th:href="@{/showFormForUpdate/{id}(id=${employee.id})}">Edit</a>
+                                            <a class="dropdown-item" th:style="'color: red;'" data-toggle="modal" data-target="#deleteModal">Delete</a>
                                         </div>
                                     </div>
 
@@ -145,10 +160,10 @@
                                         </div>
                                     </div>
                                 </td>-->
-                            <!--menu action-->
+                                <!--menu action-->
 
 
-                            </td>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -186,14 +201,10 @@
         <!--Modal Logout-->
 
 
-
-
-
-
     </div>
 </div>
 
-<div th:if="${totalPages > 1}">
+<div th:if="${totalPages > 1}" style="margin-top: 20px">
     <div class="row col-sm-10">
         <div class="col-sm-2">
             Total Rows: [[${totalItems}]]

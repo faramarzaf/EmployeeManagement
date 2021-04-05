@@ -3,3 +3,16 @@
     width: 100%;
     line-height:4; /*change position the text of headers in html files*/
 }
+
+.circle:before {
+    content: ' \25CF';
+    font-size: 7px;
+    color: #999999;
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+div.rotate {
+    transform: rotate(90deg);
+}
