@@ -491,6 +491,7 @@ a.btn.disabled {
     display: block;
     clear: both;
     width: 100%;
+    cursor: pointer;
     padding: .25rem 1.5rem;
     text-align: inherit;
     white-space: nowrap;
@@ -1034,7 +1035,7 @@ a.text-white:focus {
         page-break-after: avoid;
     }
 
-@    page {
+    page {
          size: a3;
      }
 
@@ -1328,17 +1329,17 @@ a.btn-icon-only {
 
 @media (min-width: 768px) {
 
-@    keyframes show-navbar-dropdown {
-0% {
+   keyframes show-navbar-dropdown {
+
     transition: visibility .25s, opacity .25s, transform .25s;
     transform: translate(0, 10px) perspective(200px) rotateX(-2deg);
     opacity: 0;
 }
 
-100% {
+ {
     transform: translate(0, 0);
     opacity: 1;
-}
+
 }
 
 @keyframes hide-navbar-dropdown {

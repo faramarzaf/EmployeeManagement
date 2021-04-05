@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/my_pagination.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/my_table.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/logout_button.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dotted.css}"/>
 
 
     <!--    tales examples
@@ -50,12 +51,11 @@
 <body>
 
 
-<div class="box"  style="position: absolute; right: 0;">
+<div class="box" style="position: absolute; right: 0;">
     <a href="#" data-toggle="modal" data-target="#logoutModal" class="btn btn-white btn-animation-1">Logout</a>
 </div>
 
 <div class="main-content">
-
 
 
     <div class="container mt-7">
@@ -67,16 +67,9 @@
 
                 <div class="card shadow">
 
-               <!--     <div class="border-0" style="position: absolute; right: 0; margin-top: 15px; margin-right: 20px">
-                        <input type="submit" value="Logout" data-toggle="modal" data-target="#logoutModal" class="buttonPublic buttonLogout nounderline"/>
-                    </div>-->
-
-
-
                     <div class="card-header border-0">
                         <h3 class="mb-0">Employees List</h3>
                     </div>
-
 
 
                     <div class="table-responsive">
@@ -98,14 +91,52 @@
                                 <td th:text="${employee.firstName}"></td>
                                 <td th:text="${employee.lastName}"></td>
                                 <td th:text="${employee.email}"></td>
-                            </tr>
+                                <td>
 
-                            <!--menu action-->
-                            <tr>
-                                <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v">:</i>
+                                            more
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item"  th:href="@{/showFormForUpdate/{id}(id=${employee.id})}">Edit</a>
+                                            <a class="dropdown-item"  th:style="'color: red;'" data-toggle="modal" data-target="#deleteModal">Delete</a>
+                                        </div>
+                                    </div>
+
+                                    <!--Modal Delete item-->
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this item?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class=" buttonPublic buttonCancelModal nounderline" data-dismiss="modal">Close</button>
+
+
+                                                    <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
+                                                       class="buttonPublic buttonDeleteModal  nounderline">Yes
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Modal Delete item-->
+
+
+                                    <!--menu action-->
+                            <tr>
+                                <!--<td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="#">Action</a>
@@ -113,48 +144,21 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
+                                </td>-->
                             <!--menu action-->
 
-                            </tbody>
 
+                            </td>
+                            </tr>
+                            </tbody>
                         </table>
 
-
-
-
-
-                    </div>
-                    <div class="card-footer py-4">
-                        <nav aria-label="...">
-                            <ul class="pagination justify-content-end mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">
-                                        <i class="fas fa-angle-left"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="fas fa-angle-right"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--Modal Logout-->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -179,7 +183,42 @@
                 </div>
             </div>
         </div>
+        <!--Modal Logout-->
 
+
+
+
+
+
+    </div>
+</div>
+
+<div th:if="${totalPages > 1}">
+    <div class="row col-sm-10">
+        <div class="col-sm-2">
+            Total Rows: [[${totalItems}]]
+        </div>
+        <div class="col-sm-10">
+        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+            <span th:unless="${currentPage != i}">[[${i}]]</span>
+        </span>
+        </div>
+
+        <div class="col-sm-1">
+            <a th:if="${currentPage != 1  }" th:href="@{'/page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
+            <span th:unless="${currentPage != 1}">Previous</span>
+        </div>
+
+        <div class="col-sm-1" style="margin-left: 10px">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+            <span th:unless="${currentPage < totalPages}">Next</span>
+        </div>
+
+        <div class="col-sm-1" style="margin-left: 5px">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+            <span th:unless="${currentPage < totalPages}">Last</span>
+        </div>
     </div>
 </div>
 
