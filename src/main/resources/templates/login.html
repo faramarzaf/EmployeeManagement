@@ -61,7 +61,7 @@
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control item" id="username" name="username" placeholder="Email"
+            <input type="text" class="form-control item  font-size" id="username" name="username" placeholder="Email"
                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                    oninvalid="this.setCustomValidity('Email is not valid')"
                    onchange="this.setCustomValidity('')"
@@ -69,11 +69,11 @@
         </div>
 
         <div class="form-group">
-            <input type="password" class="form-control item" id="password" name="password" placeholder="Password"
+            <input type="password" class="form-control item  font-size" id="password" name="password" placeholder="Password"
                    required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group font-size">
             <span>New user? <a href="/registration" th:href="@{/registration}">Register here</a></span>
         </div>
 

@@ -19,84 +19,45 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/alert.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/button.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/input_add_employee.css}"/>
+
 
 
 </head>
 <body>
 
 
-<!--<div class="container">
-    <h1>Employee Management System</h1>
-    <hr>
-    <h2>Save Employee</h2>
-
-    <form name="formSaveEmployee" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
-
-
-        <input type="text" value="Display" name="employee_name" th:field="*{firstName}" placeholder="Employee First Name" class="form-control mb-4 col-4" required>
-
-        <input type="text" name="employee_lastname" th:field="*{lastName}" placeholder="Employee Last Name" class="form-control mb-4 col-4" required>
-
-        <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-               oninvalid="this.setCustomValidity('Email is not valid')"
-               onchange="this.setCustomValidity('')"
-               name="employee_email" th:field="*{email}" placeholder="Employee Email"
-               class="form-control mb-4 col-4"
-               required>
-
-        <button type="submit" class="btn btn-info col-2"> Save Employee</button>
-
-        <div th:if="${emailExists != null}" class="alert alert-danger notification" role="alert">
-            <p th:text="${emailExists}"></p><p>Email has already taken!</p>
-        </div>
-
-
-    </form>
-
-    <hr>
-
-
-    <a th:href="@{/}"> Back to Employee List</a>
-</div>-->
-
-
-
-
 <form id="login-form" class="login-form" autocomplete="off" role="main"
       name="formSaveEmployee" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
 
-    <h1 class="a11y-hidden">Save Employee</h1>
-
+    <h1 class="a11y-hidden ">Save Employee</h1>
+    <!-- Helvetica, sans-serif-->
     <div>
         <label class="label-email">
-            <input type="text" class="text" name="employee_name" th:field="*{firstName}" placeholder="First name" tabindex="1" required />
-            <span class="required">First name</span>
+            <input type="text" class="text font-fam" name="employee_name" th:field="*{firstName}" placeholder="First name" tabindex="1" required/>
+            <span class="required font-fam">First name</span>
         </label>
     </div>
 
     <div>
         <label class="label-email">
-            <input type="text" class="text" name="employee_lastname" th:field="*{lastName}" placeholder="Last name" tabindex="1" required />
-            <span class="required">Last name</span>
+            <input type="text" class="text font-fam" name="employee_lastname" th:field="*{lastName}" placeholder="Last name" tabindex="1" required/>
+            <span class="required font-fam">Last name</span>
         </label>
     </div>
 
     <div>
-        <label class="label-email">
+        <label class="label-email font-fam">
             <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                    oninvalid="this.setCustomValidity('Email is not valid')"
                    onchange="this.setCustomValidity('')"
-                   name="employee_email" th:field="*{email}" class="text"  placeholder="Email" tabindex="1" required />
-            <span class="required">Email</span>
+                   name="employee_email" th:field="*{email}" class="text" placeholder="Email" tabindex="1" required/>
+            <span class="required font-fam">Email</span>
         </label>
     </div>
 
-    <input type="submit"  class="btn btn-info" value="Save" />
-<!--    <input type="submit"  class="btn btn-info" value="Save" />
-    <div th:if="${emailExists != null}" class="alert alert-danger notification" role="alert">
-        <p th:text="${emailExists}"></p><p>Email has already taken!</p>
-    </div>-->
+    <input type="submit" class="button-save" value="Save"/>
 
     <div th:if="${emailExists != null}" class="notification" role="alert">
         <div class="alert alert-danger alert-white rounded">
