@@ -60,7 +60,7 @@
 }
 
 .btn-white::after {
-  background: rgba(255, 122, 122, 0.35);
+  background: rgba(234, 126, 126, 0.35);
 }
 
 .btn-animation-1:hover::after {
