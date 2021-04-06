@@ -42,9 +42,14 @@ public class EmployeeController {
     }
 
 
-    @RequestMapping(path = "/updateEmployee",method = RequestMethod.POST)
-    public String updateEmployee(@ModelAttribute("employee") Employee employee) {
-        employeeService.saveEmployee(employee);
+    @RequestMapping(path = "/updateEmployee", method = RequestMethod.POST)
+    public String updateEmployee(@ModelAttribute("employee") Employee employee, Model model) {
+        Boolean existsEmployeeByEmail = employeeService.existsEmployeeByEmail(employee.getEmail());
+        if (existsEmployeeByEmail) {
+            model.addAttribute("emailExists", "Error");
+            return "update_employee";
+        } else
+            employeeService.saveEmployee(employee);
         return "redirect:/";
     }
 
@@ -52,8 +57,6 @@ public class EmployeeController {
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
-
-        // set employee as a model attribute to pre-populate the form
         model.addAttribute("employee", employee);
         return "update_employee";
     }

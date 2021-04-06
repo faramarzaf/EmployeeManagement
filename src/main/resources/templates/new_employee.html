@@ -28,7 +28,7 @@
 <body>
 
 
-<form id="login-form" class="login-form" autocomplete="off" role="main"
+<form id="save-form" class="save" autocomplete="off" role="main"
       name="formSaveEmployee" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
 
     <h1 class="a11y-hidden ">Save Employee</h1>
@@ -59,16 +59,7 @@
 
     <input type="submit" class="button-save" value="Save"/>
 
-    <div th:if="${emailExists != null}" class="notification" role="alert">
-        <div class="alert alert-danger alert-white rounded">
-            <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button>
-            <div class="icon">
-                <i class="fa fa-times-circle"></i>
-            </div>
-            <strong>Error!</strong>
-            Email has already taken!
-        </div>
-    </div>
+
 
 
     <figure aria-hidden="true">
@@ -84,6 +75,16 @@
         <div class="shirt-2"></div>
     </figure>
 
+    <div th:if="${emailExists != null}" class="notification" role="alert">
+        <div class="alert alert-danger alert-white rounded">
+            <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button>
+            <div class="icon">
+                <i class="fa fa-times-circle"></i>
+            </div>
+            <strong>Error!</strong>
+            Email has already taken!
+        </div>
+    </div>
 
 </form>
 
