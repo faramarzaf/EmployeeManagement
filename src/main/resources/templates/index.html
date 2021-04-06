@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/my_table.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/logout_button.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/dotted.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/add_button.css}"/>
 
 
     <!--    tales examples
@@ -58,6 +59,7 @@
 <div class="main-content">
 
 
+
     <div class="container mt-7">
         <!-- Table -->
 
@@ -67,9 +69,18 @@
 
                 <div class="card shadow">
 
-                    <div class="card-header border-0">
+                 <div id="parent">
+
+                    <div class="card-header border-0" id="wide">
                         <h3 class="mb-0">Employees List</h3>
                     </div>
+
+                    <div id="narrow" class="centerButton">
+                        <a th:href="@{/showNewEmployeeForm}"  class="btn btn-info mb-3"> Add Employee </a>
+                    </div>
+
+                 </div>
+
 
 
                     <div class="table-responsive">

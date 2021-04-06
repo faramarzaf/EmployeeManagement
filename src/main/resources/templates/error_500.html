@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>500</title>
+    <title>500 Error Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error_page.css}"/>
 </head>
 <body>
-<h1>Internal server error!</h1>
+
+
+
+<section class="error-container">
+    <span>5</span>
+    <span><span class="screen-reader-text">0</span></span>
+    <span>0</span>
+</section>
+<p class="zoom-area"><b>Server</b> error. Something went wrong.</p>
+
+<div class="link-container">
+    <a target="_blank" th:href="@{/}" class="more-link">Back To Home</a>
+</div>
+
+
 </body>
 </html>

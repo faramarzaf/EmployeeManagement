@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>404</title>
+    <title>404 Error Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error_page.css}"/>
 </head>
 <body>
-<h1>Not found!</h1>
+
+
+
+<section class="error-container">
+    <span>4</span>
+    <span><span class="screen-reader-text">0</span></span>
+    <span>4</span>
+</section>
+<p class="zoom-area"><b>The page</b> you were looking for doesnt exist.</p>
+
+<div class="link-container">
+    <a target="_blank" th:href="@{/}" class="more-link">Back To Home</a>
+</div>
+
+
 </body>
 </html>

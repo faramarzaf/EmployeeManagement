@@ -20,3 +20,23 @@ div.rotate {
 .center {
     text-align: center;
 }
+
+/*for place addEmployee btn and Employee list beside together */
+#parent {
+    display: flex;
+}
+#narrow {
+    width: 200px;
+    height: 45px;
+}
+#wide {
+    flex: 1;
+
+}
+/*for place addEmployee btn and Employee list beside together */
+
+
+.centerButton {
+    margin: auto;
+    width: 30%;
+}
