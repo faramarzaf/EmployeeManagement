@@ -25,13 +25,14 @@
 }
 
 .btn-white{
-  background: #ffffff;
+  background: rgba(255, 122, 122, 0.35);
   color:#000;
 }
 
 .btn:hover{
   box-shadow:0px 10px 10px rgba(0,0,0,0.2);
   transform : translateY(-3px);
+  color: black;
 }
 
 .btn:active{
@@ -59,7 +60,7 @@
 }
 
 .btn-white::after {
-  background: #fff;
+  background: rgba(255, 122, 122, 0.35);
 }
 
 .btn-animation-1:hover::after {
