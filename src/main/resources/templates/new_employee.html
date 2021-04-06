@@ -8,12 +8,25 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alert.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/button.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/input_add_employee.css}"/>
 
 
 </head>
 <body>
-<div class="container">
+
+
+<!--<div class="container">
     <h1>Employee Management System</h1>
     <hr>
     <h2>Save Employee</h2>
@@ -45,9 +58,73 @@
 
 
     <a th:href="@{/}"> Back to Employee List</a>
-</div>
+</div>-->
 
 
+
+
+<form id="login-form" class="login-form" autocomplete="off" role="main"
+      name="formSaveEmployee" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+
+    <h1 class="a11y-hidden">Save Employee</h1>
+
+    <div>
+        <label class="label-email">
+            <input type="text" class="text" name="employee_name" th:field="*{firstName}" placeholder="First name" tabindex="1" required />
+            <span class="required">First name</span>
+        </label>
+    </div>
+
+    <div>
+        <label class="label-email">
+            <input type="text" class="text" name="employee_lastname" th:field="*{lastName}" placeholder="Last name" tabindex="1" required />
+            <span class="required">Last name</span>
+        </label>
+    </div>
+
+    <div>
+        <label class="label-email">
+            <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                   oninvalid="this.setCustomValidity('Email is not valid')"
+                   onchange="this.setCustomValidity('')"
+                   name="employee_email" th:field="*{email}" class="text"  placeholder="Email" tabindex="1" required />
+            <span class="required">Email</span>
+        </label>
+    </div>
+
+    <input type="submit"  class="btn btn-info" value="Save" />
+<!--    <input type="submit"  class="btn btn-info" value="Save" />
+    <div th:if="${emailExists != null}" class="alert alert-danger notification" role="alert">
+        <p th:text="${emailExists}"></p><p>Email has already taken!</p>
+    </div>-->
+
+    <div th:if="${emailExists != null}" class="notification" role="alert">
+        <div class="alert alert-danger alert-white rounded">
+            <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button>
+            <div class="icon">
+                <i class="fa fa-times-circle"></i>
+            </div>
+            <strong>Error!</strong>
+            Email has already taken!
+        </div>
+    </div>
+
+
+    <figure aria-hidden="true">
+        <div class="person-body"></div>
+        <div class="neck skin"></div>
+        <div class="head skin">
+            <div class="eyes"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="hair"></div>
+        <div class="ears"></div>
+        <div class="shirt-1"></div>
+        <div class="shirt-2"></div>
+    </figure>
+
+
+</form>
 
 
 </body>
