@@ -41,7 +41,7 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-
+    // TODO bug here
     @RequestMapping(path = "/updateEmployee", method = RequestMethod.POST)
     public String updateEmployee(@ModelAttribute("employee") Employee employee, Model model) {
         Boolean existsEmployeeByEmail = employeeService.existsEmployeeByEmail(employee.getEmail());

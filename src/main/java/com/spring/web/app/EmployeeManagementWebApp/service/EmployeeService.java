@@ -14,6 +14,8 @@ public interface EmployeeService {
 
     Employee getEmployeeById(long id);
 
+    Employee findEmployeeByEmail(String email);
+
     Long deleteEmployeeById(long id);
 
     Boolean existsEmployeeByEmail(String email);
