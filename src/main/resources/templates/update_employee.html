@@ -27,45 +27,12 @@
 <div class="container">
 
 
-<!--
-    <form action="#" th:action="@{/updateEmployee}" th:object="${employee}"
-          method="post">
-
-        &lt;!&ndash; Add hidden form field to handle update &ndash;&gt;
-        <input type="hidden" th:field="*{id}"/>
-
-        <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" required>
-
-        <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" required>
-
-        <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-               th:field="*{email}" class="form-control mb-4 col-4"
-               oninvalid="this.setCustomValidity('Email is not valid')"
-               onchange="this.setCustomValidity('')"
-               required>
-
-        <button type="submit" class="btn btn-info col-2"> Update Employee</button>
-
-    </form>
-
-
-
-
-
--->
-
-
-
-
-
-
     <form id="update-form" class="update" autocomplete="off" role="main"
           action="#" th:action="@{/updateEmployee}" th:object="${employee}"
           method="post">
 
-
         <div>
-        <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{id}"/>
         </div>
 
         <div>
@@ -107,7 +74,6 @@
             <div class="shirt-1"></div>
             <div class="shirt-2"></div>
         </figure>
-
 
 
         <div th:if="${emailExists != null}" class="notification" role="alert">
