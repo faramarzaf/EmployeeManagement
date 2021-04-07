@@ -37,17 +37,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/dotted.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/add_button.css}"/>
 
-
-    <!--    tales examples
-        https://codepen.io/alexerlandsson/pen/mPWgpO
-        https://codepen.io/creativetim/pen/OePrJO
-        https://bootsnipp.com/snippets/P2eO9
-
-        pagination
-        https://codepen.io/arefeh_htmi/pen/ExKewzW
-
-        -->
-
 </head>
 <body>
 
@@ -59,7 +48,6 @@
 <div class="main-content">
 
 
-
     <div class="container mt-7">
         <!-- Table -->
 
@@ -69,34 +57,32 @@
 
                 <div class="card shadow">
 
-                 <div id="parent">
+                    <div id="parent">
 
-                    <div class="card-header border-0" id="wide">
-                        <h3 class="mb-0">Employees List</h3>
+                        <div class="card-header border-0" id="wide">
+                            <h3 class="mb-0">Employees List</h3>
+                        </div>
+
+
+                        <div id="narrow2" class="centerButton ">
+                            <a th:href="@{/showNewEmployeeForm}" id="dropdownMenuButton1" class="btn mb-3 buttonAddEmployee " type="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">Sort</a>
+
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">First name</a></li>
+                                <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">Last name</a></li>
+                                <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">Email</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div id="narrow" class="centerButton">
+                            <a th:href="@{/showNewEmployeeForm}" class="btn mb-3 buttonAddEmployee">Add Employee</a>
+                        </div>
+
+
                     </div>
-
-
-                     <div id="narrow2" class="centerButton ">
-                         <a th:href="@{/showNewEmployeeForm}" id="dropdownMenuButton1" class="btn mb-3 buttonAddEmployee " type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort</a>
-
-
-                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                             <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">First name</a></li>
-                             <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">Last name</a></li>
-                             <li><a class="dropdown-item" th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">Email</a></li>
-                         </ul>
-                     </div>
-
-
-
-                    <div id="narrow" class="centerButton">
-                        <a th:href="@{/showNewEmployeeForm}"  class="btn mb-3 buttonAddEmployee">Add Employee</a>
-                    </div>
-
-
-
-                 </div>
-
 
 
                     <div class="table-responsive">
@@ -131,12 +117,6 @@
                                             </div>
 
                                         </a>
-
-                                        <!--          <div style="text-align:center" class="rotate">
-                                                      <span class="circle"></span>
-                                                      <span class="circle"></span>
-                                                      <span class="circle"></span>
-                                                  </div>-->
 
 
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -198,24 +178,7 @@
                                         </div>
                                     </div>
                                     <!--Modal Logout-->
-
-
-                                    <!--menu action-->
                             <tr>
-                                <!--<td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>-->
-                                <!--menu action-->
-
 
                                 </td>
                             </tr>
@@ -228,42 +191,36 @@
         </div>
 
 
-
-
     </div>
 </div>
 
 
-<div th:if="${totalPages > 1}" style="margin-top: 20px;" >
-    <div class="row col-sm-10">
-        <div class="col-sm-2">
-            Total Rows: [[${totalItems}]]
-        </div>
-        <div class="col-sm-10">
-        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-            <span th:unless="${currentPage != i}">[[${i}]]</span>
-        </span>
-        </div>
+<div class="pagination_rounded" th:if="${totalPages > 1}" style="margin-top: 20px;">
+    <ul>
 
-        <div class="col-sm-1">
-            <a th:if="${currentPage != 1  }" th:href="@{'/page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
-            <span th:unless="${currentPage != 1}">Previous</span>
-        </div>
+        <li>
+            <a th:if="${currentPage != 1  }" th:href="@{'/page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}" class="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i> Prev
+            </a>
+        </li>
 
-        <div class="col-sm-1" style="margin-left: 10px">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-            <span th:unless="${currentPage < totalPages}">Next</span>
-        </div>
+        <li>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}" class="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>Next
+            </a>
+        </li>
 
-        <div class="col-sm-1" style="margin-left: 5px">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-            <span th:unless="${currentPage < totalPages}">Last</span>
-        </div>
-    </div>
+        <!--    Last button has work to become ok :|
+           <li>
+                <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}" class="prev">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i> Last
+                </a>
+           </li>-->
+
+
+    </ul>
+
 </div>
-
-
 
 </body>
 </html>

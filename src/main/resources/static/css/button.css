@@ -57,14 +57,14 @@
 }
 
 
-.buttonAddEmployee{
+.buttonAddEmployee {
     background-color: rgba(156, 246, 152, 0.35);
     color: black;
     margin-left: 40px;
     padding: 0;
 }
 
-.buttonAddEmployee:hover{
+.buttonAddEmployee:hover {
     color: black;
 }
 

@@ -119,13 +119,13 @@ label:hover input.text {
 
 label input.text:focus,
 label input.text:active {
-    border-color:  hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
-    box-shadow: 0 1px  hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    border-color: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    box-shadow: 0 1px hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
 }
 
 input.text:focus + span,
 input.text:active + span {
-    color:  hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    color: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
 }
 
 input {
@@ -189,9 +189,9 @@ figure {
     --skinH: 30;
     --skinS: 100%;
     --skinL: 87%;
-    --hair: rgb(180,70,60);
+    --hair: rgb(180, 70, 60);
     background: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), 95%);
-    border: 1px solid rgba(0,0,0,0.0625);
+    border: 1px solid rgba(0, 0, 0, 0.0625);
     border-radius: 50%;
     height: 0;
     margin: auto auto;
@@ -222,7 +222,7 @@ figure .head {
     box-shadow: 0 -0.175rem 0 0.125rem var(--hair);
 }
 
-figure  .ears {
+figure .ears {
     top: 47%;
     left: 50%;
     white-space: nowrap;
@@ -361,11 +361,11 @@ figure .shirt-2 {
     transform: skew(10deg) rotate(-15deg)
 }
 
-.font-fam{
+.font-fam {
     font-family: Segoe UI;
 }
 
-.button-save{
+.button-save {
     border-radius: 30px;
     padding: 10px 10px;
     font-size: 16px;
