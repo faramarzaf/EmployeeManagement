@@ -43,13 +43,8 @@ public class EmployeeController {
 
     // TODO bug here
     @RequestMapping(path = "/updateEmployee", method = RequestMethod.POST)
-    public String updateEmployee(@ModelAttribute("employee") Employee employee, Model model) {
-        Boolean existsEmployeeByEmail = employeeService.existsEmployeeByEmail(employee.getEmail());
-        if (existsEmployeeByEmail) {
-            model.addAttribute("emailExists", "Error");
-            return "update_employee";
-        } else
-            employeeService.saveEmployee(employee);
+    public String updateEmployee(@ModelAttribute("employee") Employee employee) {
+        employeeService.saveEmployee(employee);
         return "redirect:/";
     }
 
