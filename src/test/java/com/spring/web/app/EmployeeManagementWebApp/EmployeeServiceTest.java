@@ -3,14 +3,13 @@ package com.spring.web.app.EmployeeManagementWebApp;
 import com.spring.web.app.EmployeeManagementWebApp.model.Employee;
 import com.spring.web.app.EmployeeManagementWebApp.repository.EmployeeRepository;
 import com.spring.web.app.EmployeeManagementWebApp.service.EmployeeServiceImpl;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@WebMvcTest
-@DataJpaTest
+@RunWith(MockitoJUnitRunner.class)
 public class EmployeeServiceTest {
 
 
@@ -29,8 +27,12 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository employeeRepository;
 
+/*    @Autowired
+    private MockMvc mockMvc;*/
+
     @Before
     public void init() {
+        employeeService = new EmployeeServiceImpl();
         MockitoAnnotations.initMocks(this);
     }
 
