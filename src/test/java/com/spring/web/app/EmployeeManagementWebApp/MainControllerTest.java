@@ -21,7 +21,7 @@ public class MainControllerTest {
     private UserService userService;
 
     @Test
-    void testLoginEndPoint() throws Exception {
+    void test_login_end_point() throws Exception {
         mockMvc.perform(get("/login")
                 .contentType("application/json"))
                 .andExpect(status().isOk());

@@ -24,7 +24,7 @@ class ControllerTest {
     private UserRegistrationController userRegistrationController;
 
     @Test
-    void testControllers() {
+    void test_controllers() {
         assertAll(
                 () ->   assertThat(mainController).isNotNull(),
                 () ->   assertThat(employeeController).isNotNull(),

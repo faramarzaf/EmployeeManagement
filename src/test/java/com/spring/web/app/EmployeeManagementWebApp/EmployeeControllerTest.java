@@ -29,35 +29,35 @@ public class EmployeeControllerTest {
 
 
     @Test
-    void testViewHomePage() throws Exception {
+    void test_view_home_page() throws Exception {
         mockMvc.perform(get("/")
                 .contentType("application/json"))
                 .andExpect(status().is(302));
     }
 
     @Test
-    void testShowNewEmployeeForm() throws Exception {
+    void test_show_new_employee_form() throws Exception {
         mockMvc.perform(get("/showNewEmployeeForm")
                 .contentType("application/json"))
                 .andExpect(status().is(302));
     }
 
     @Test
-    void testSaveEmployee() throws Exception {
+    void test_save_employee() throws Exception {
         mockMvc.perform(get("/saveEmployee")
                 .contentType("application/json"))
                 .andExpect(status().is(302));
     }
 
     @Test
-    void testUpdateEmployee() throws Exception {
+    void test_update_employee() throws Exception {
         mockMvc.perform(get("/updateEmployee")
                 .contentType("application/json"))
                 .andExpect(status().is(302));
     }
 
     @Test
-    void testShowFormForUpdate() throws Exception {
+    void test_show_form_for_update() throws Exception {
         Employee employee = new Employee("joe", "mc", "joemc@gmail.com");
         mockMvc.perform(get("/showFormForUpdate/" + employee.getId())
                 .contentType("application/json"))
@@ -65,7 +65,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    void testDeleteEmployee() throws Exception {
+    void test_delete_employee() throws Exception {
         Employee employee = new Employee(10L, "joe", "mc", "joemc@gmail.com");
         mockMvc.perform(delete("/deleteEmployee/{id}", employee.getId())
                 .contentType(MediaType.APPLICATION_JSON))
@@ -73,7 +73,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    void testFindPaginated() throws Exception {
+    void test_find_paginated() throws Exception {
         mockMvc.perform(get("/page/{pageNo}", 1)
                 .contentType("application/json"))
                 .andExpect(status().is(302));
