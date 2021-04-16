@@ -27,8 +27,6 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository employeeRepository;
 
-/*    @Autowired
-    private MockMvc mockMvc;*/
 
     @Before
     public void init() {
@@ -87,7 +85,6 @@ public class EmployeeServiceTest {
 
         when(employeeRepository.findAll()).thenReturn(list);
 
-        //test
         List<Employee> empList = employeeService.getAllEmployees();
 
         assertEquals(3, empList.size());

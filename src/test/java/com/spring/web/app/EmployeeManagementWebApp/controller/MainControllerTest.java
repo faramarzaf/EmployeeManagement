@@ -1,4 +1,4 @@
-package com.spring.web.app.EmployeeManagementWebApp;
+package com.spring.web.app.EmployeeManagementWebApp.controller;
 
 import com.spring.web.app.EmployeeManagementWebApp.controller.MainController;
 import com.spring.web.app.EmployeeManagementWebApp.repository.UserService;

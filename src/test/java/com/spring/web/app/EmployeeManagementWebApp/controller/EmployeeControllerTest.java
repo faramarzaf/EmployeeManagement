@@ -1,4 +1,4 @@
-package com.spring.web.app.EmployeeManagementWebApp;
+package com.spring.web.app.EmployeeManagementWebApp.controller;
 
 import com.spring.web.app.EmployeeManagementWebApp.controller.EmployeeController;
 import com.spring.web.app.EmployeeManagementWebApp.model.Employee;
