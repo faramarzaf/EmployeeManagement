@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @DataJpaTest
@@ -56,6 +58,15 @@ public class EmployeeServiceTest {
         assertEquals("Sam", employee.getFirstName());
         assertEquals("McDon", employee.getLastName());
         assertEquals("Sammcd@gmail.com", employee.getEmail());
+    }
+
+    @Test
+    public void employee_with_id_no_exists(){
+        long id = 10;
+        given(employeeRepository.existsById(id)).willReturn(false);
+        assertThatThrownBy(() -> employeeService.getEmployeeById(id))
+                .isInstanceOf(RuntimeException.class)
+                .hasMessageContaining("Employee not found for id :: "+id);
     }
 
     @Test
