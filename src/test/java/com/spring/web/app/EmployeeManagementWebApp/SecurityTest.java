@@ -28,11 +28,10 @@ public class SecurityTest {
     @Autowired
     private FilterChainProxy springSecurityFilterChain;
 
-    private MockMvc mockMvc;
-
     @MockBean
     private UserService userService;
 
+    private MockMvc mockMvc;
 
     @Before
     public void setup() {
@@ -42,14 +41,14 @@ public class SecurityTest {
     }
 
     @Test
-    public void loginAvailableForAll() throws Exception {
+    public void login_available_for_all() throws Exception {
         mockMvc
                 .perform(get("/login"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void verifiesLoginPageLoads() throws Exception {
+    public void verifies_login_page_loads() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/login"))
                 .andExpect(MockMvcResultMatchers.model().hasNoErrors())
                 .andExpect(MockMvcResultMatchers.view().name("login"))

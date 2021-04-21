@@ -5,19 +5,21 @@ import com.spring.web.app.EmployeeManagementWebApp.repository.EmployeeRepository
 import com.spring.web.app.EmployeeManagementWebApp.service.EmployeeServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@DataJpaTest
+@SpringBootTest
 public class EmployeeServiceTest {
 
 
@@ -90,6 +92,19 @@ public class EmployeeServiceTest {
         assertEquals(3, empList.size());
         verify(employeeRepository, times(1)).findAll();
 
+    }
+
+    @Test
+    public void delete_employee() {
+        Employee employee = new Employee(5L, "sam", "mira", "sam@gmail.com");
+        employeeRepository.deleteById(employee.getId());
+        Employee deletedEmployee = employeeRepository.findEmployeeByEmail("sam@gmail.com");
+        assertThat(deletedEmployee).isNull();
+    }
+
+    @Test
+    public void update_employee() {
+        // TODO
     }
 
 }
