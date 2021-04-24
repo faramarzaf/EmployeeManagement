@@ -1,9 +1,17 @@
 package com.spring.web.app.EmployeeManagementWebApp.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "role")
+
 public class Role {
 
     @Id
@@ -12,26 +20,9 @@ public class Role {
 
     private String name;
 
-    public Role() {
-    }
-
     public Role(String name) {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

@@ -1,22 +1,31 @@
 package com.spring.web.app.EmployeeManagementWebApp.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
- *  UniqueConstraint allows you to name the constraint, while @Column(unique = true) generates a random name (e.g. UK_3u5h7y36qqa13y3mauc5xxayq).
+ * UniqueConstraint allows you to name the constraint, while @Column(unique = true) generates a random name (e.g. UK_3u5h7y36qqa13y3mauc5xxayq).
  *
- *  @Column(unique = true) -->This code implies that both mask and group have to be unique, but separately.
- *  That means that if, for example, you have a record with a mask.id = 1 and tries to insert another record with mask.id = 1,
- *  you'll get an error, because that column should have unique values.
- *
- *  UniqueConstraint--> Implies that the values of mask + group combined should be unique.
- *  That means you can have, for example, a record with mask.id = 1 and group.id = 1, and if you try to insert another record with mask.id = 1 and group.id = 2,
- *  it'll be inserted successfully, whereas in the first case it wouldn't.
+ * @Column(unique = true) -->This code implies that both mask and group have to be unique, but separately.
+ * That means that if, for example, you have a record with a mask.id = 1 and tries to insert another record with mask.id = 1,
+ * you'll get an error, because that column should have unique values.
+ * <p>
+ * UniqueConstraint--> Implies that the values of mask + group combined should be unique.
+ * That means you can have, for example, a record with mask.id = 1 and group.id = 1, and if you try to insert another record with mask.id = 1 and group.id = 2,
+ * it'll be inserted successfully, whereas in the first case it wouldn't.
  */
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
@@ -42,8 +51,6 @@ public class User {
     )
     private Collection<Role> roles;
 
-    public User() {
-    }
 
     public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         this.firstName = firstName;
@@ -53,51 +60,5 @@ public class User {
         this.roles = roles;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Collection<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
 }

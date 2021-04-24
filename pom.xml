@@ -80,6 +80,12 @@
 			<version>5.4.1.Final</version>
 		</dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
 
         <dependency>
             <groupId>org.junit.platform</groupId>
