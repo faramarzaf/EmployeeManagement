@@ -48,9 +48,12 @@ public class EmployeeServiceTest {
 
     @Test
     public void get_employee_by_id() {
-        when(
-                employeeRepository.findById(1L)
-        ).thenReturn(java.util.Optional.of(new Employee(1L, "Sam", "McDon", "Sammcd@gmail.com")));
+        when(employeeRepository.findById(1L))
+                .thenReturn(java.util.Optional.of(
+                        new Employee(1L,
+                                "Sam",
+                                "McDon",
+                                "Sammcd@gmail.com")));
 
         Employee employee = employeeService.getEmployeeById(1L);
 
@@ -61,19 +64,22 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void employee_with_id_no_exists(){
+    public void employee_with_id_no_exists() {
         long id = 10;
         given(employeeRepository.existsById(id)).willReturn(false);
         assertThatThrownBy(() -> employeeService.getEmployeeById(id))
                 .isInstanceOf(RuntimeException.class)
-                .hasMessageContaining("Employee not found for id :: "+id);
+                .hasMessageContaining("Employee not found for id :: " + id);
     }
 
     @Test
     public void get_employee_by_email() {
-        when(
-                employeeRepository.findEmployeeByEmail("Sammcd@gmail.com")
-        ).thenReturn((new Employee(1L, "Sam", "McDon", "Sammcd@gmail.com")));
+        when(employeeRepository.findEmployeeByEmail("Sammcd@gmail.com"))
+                .thenReturn((
+                        new Employee(1L,
+                                "Sam",
+                                "McDon",
+                                "Sammcd@gmail.com")));
 
         Employee employee = employeeService.findEmployeeByEmail("Sammcd@gmail.com");
 
@@ -82,7 +88,6 @@ public class EmployeeServiceTest {
         assertEquals("McDon", employee.getLastName());
         assertEquals("Sammcd@gmail.com", employee.getEmail());
     }
-
 
     @Test
     public void test_find_all_employees() {
